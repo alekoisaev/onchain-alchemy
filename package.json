@@ -1,0 +1,24 @@
+{
+  "scripts": {
+    "forge compile": "forge compile",
+    "forge coverage": "forge coverage --report lcov"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "prettier-plugin-solidity": "^1.1.3"
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": "*.sol",
+        "options": {
+          "printWidth": 120,
+          "tabWidth": 4,
+          "useTabs": false,
+          "singleQuote": false,
+          "bracketSpacing": false
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,1477 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "informationUri": "https://github.com/crytic/slither",
+          "version": "0.9.6",
+          "rules": [
+            {
+              "id": "0-1-weak-prng",
+              "name": "weak-prng",
+              "properties": {
+                "precision": "high",
+                "security-severity": "8.0"
+              },
+              "shortDescription": {
+                "text": "Weak PRNG"
+              },
+              "help": {
+                "text": "Do not use `block.timestamp`, `now` or `blockhash` as a source of randomness"
+              }
+            },
+            {
+              "id": "0-0-name-reused",
+              "name": "name-reused",
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "8.0"
+              },
+              "shortDescription": {
+                "text": "Name reused"
+              },
+              "help": {
+                "text": "Rename the contract."
+              }
+            },
+            {
+              "id": "1-1-reentrancy-no-eth",
+              "name": "reentrancy-no-eth",
+              "properties": {
+                "precision": "high",
+                "security-severity": "4.0"
+              },
+              "shortDescription": {
+                "text": "Reentrancy vulnerabilities"
+              },
+              "help": {
+                "text": "Apply the [`check-effects-interactions` pattern](http://solidity.readthedocs.io/en/v0.4.21/security-considerations.html#re-entrancy)."
+              }
+            },
+            {
+              "id": "1-1-uninitialized-local",
+              "name": "uninitialized-local",
+              "properties": {
+                "precision": "high",
+                "security-severity": "4.0"
+              },
+              "shortDescription": {
+                "text": "Uninitialized local variables"
+              },
+              "help": {
+                "text": "Initialize all the variables. If a variable is meant to be initialized to zero, explicitly set it to zero to improve code readability."
+              }
+            },
+            {
+              "id": "2-1-events-maths",
+              "name": "events-maths",
+              "properties": {
+                "precision": "high",
+                "security-severity": "3.0"
+              },
+              "shortDescription": {
+                "text": "Missing events arithmetic"
+              },
+              "help": {
+                "text": "Emit an event for critical parameter changes."
+              }
+            },
+            {
+              "id": "2-1-missing-zero-check",
+              "name": "missing-zero-check",
+              "properties": {
+                "precision": "high",
+                "security-severity": "3.0"
+              },
+              "shortDescription": {
+                "text": "Missing zero address validation"
+              },
+              "help": {
+                "text": "Check that the address is not zero."
+              }
+            },
+            {
+              "id": "2-1-calls-loop",
+              "name": "calls-loop",
+              "properties": {
+                "precision": "high",
+                "security-severity": "3.0"
+              },
+              "shortDescription": {
+                "text": "Calls inside a loop"
+              },
+              "help": {
+                "text": "Favor [pull over push](https://github.com/ethereum/wiki/wiki/Safety#favor-pull-over-push-for-external-calls) strategy for external calls."
+              }
+            },
+            {
+              "id": "2-1-reentrancy-events",
+              "name": "reentrancy-events",
+              "properties": {
+                "precision": "high",
+                "security-severity": "3.0"
+              },
+              "shortDescription": {
+                "text": "Reentrancy vulnerabilities"
+              },
+              "help": {
+                "text": "Apply the [`check-effects-interactions` pattern](https://docs.soliditylang.org/en/latest/security-considerations.html#re-entrancy)."
+              }
+            },
+            {
+              "id": "2-1-timestamp",
+              "name": "timestamp",
+              "properties": {
+                "precision": "high",
+                "security-severity": "3.0"
+              },
+              "shortDescription": {
+                "text": "Block timestamp"
+              },
+              "help": {
+                "text": "Avoid relying on `block.timestamp`."
+              }
+            },
+            {
+              "id": "2-0-void-cst",
+              "name": "void-cst",
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "3.0"
+              },
+              "shortDescription": {
+                "text": "Void constructor"
+              },
+              "help": {
+                "text": "Remove the constructor call."
+              }
+            },
+            {
+              "id": "3-0-solc-version",
+              "name": "solc-version",
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "0.0"
+              },
+              "shortDescription": {
+                "text": "Incorrect versions of Solidity"
+              },
+              "help": {
+                "text": "\nDeploy with any of the following Solidity versions:\n- 0.8.18\n\nThe recommendations take into account:\n- Risks related to recent releases\n- Risks of complex code generation changes\n- Risks of new language features\n- Risks of known bugs\n\nUse a simple pragma version that allows any of these versions.\nConsider using the latest version of Solidity for testing."
+              }
+            },
+            {
+              "id": "3-0-missing-inheritance",
+              "name": "missing-inheritance",
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "0.0"
+              },
+              "shortDescription": {
+                "text": "Missing inheritance"
+              },
+              "help": {
+                "text": "Inherit from the missing interface or contract."
+              }
+            },
+            {
+              "id": "3-0-naming-convention",
+              "name": "naming-convention",
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "0.0"
+              },
+              "shortDescription": {
+                "text": "Conformance to Solidity naming conventions"
+              },
+              "help": {
+                "text": "Follow the Solidity [naming convention](https://solidity.readthedocs.io/en/v0.4.25/style-guide.html#naming-conventions)."
+              }
+            },
+            {
+              "id": "3-0-unused-state",
+              "name": "unused-state",
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "0.0"
+              },
+              "shortDescription": {
+                "text": "Unused state variable"
+              },
+              "help": {
+                "text": "Remove unused state variables."
+              }
+            },
+            {
+              "id": "4-0-constable-states",
+              "name": "constable-states",
+              "properties": {
+                "precision": "very-high",
+                "security-severity": "0.0"
+              },
+              "shortDescription": {
+                "text": "State variables that could be declared constant"
+              },
+              "help": {
+                "text": "Add the `constant` attribute to state variables that never change."
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "0-1-weak-prng",
+          "message": {
+            "text": "Merging._selectResultArr(uint256[]) (src/Merging.sol#242-276) uses a weak PRNG: \"randomNum = uint256(keccak256(bytes)(abi.encodePacked(block.timestamp,msg.sender,block.prevrandao))) % 100 (src/Merging.sol#244)\" \n",
+            "markdown": "[Merging._selectResultArr(uint256[])](src/Merging.sol#L242-L276) uses a weak PRNG: \"[randomNum = uint256(keccak256(bytes)(abi.encodePacked(block.timestamp,msg.sender,block.prevrandao))) % 100](src/Merging.sol#L244)\" \n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 242,
+                  "endLine": 276
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "8d4a215068fe6e90be7bbcea3c80807fbbc7a82a29bfef874b448a58404fcd56"
+          }
+        },
+        {
+          "ruleId": "0-0-name-reused",
+          "message": {
+            "text": "IERC721Crystal is re-used:\n\t- IERC721Crystal (src/Merging.sol#8-18)\n\t- IERC721Crystal (src/Staking.sol#12-20)\n",
+            "markdown": "IERC721Crystal is re-used:\n\t- [IERC721Crystal](src/Merging.sol#L8-L18)\n\t- [IERC721Crystal](src/Staking.sol#L12-L20)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 8,
+                  "endLine": 18
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "bc8d2bc20928acba5eb88796fd15264bbd2c0cfde74a83d4a5f8754535420a37"
+          }
+        },
+        {
+          "ruleId": "1-1-reentrancy-no-eth",
+          "message": {
+            "text": "Reentrancy in ElementStake.unstake(uint24,uint256[]) (src/Staking.sol#98-127):\n\tExternal calls:\n\t- _rewardCount = claimReward(msg.sender,_elementId) (src/Staking.sol#117)\n\t\t- rewardToken.mintBaseElements(staker,rewardCount,rewardElement) (src/Staking.sol#134)\n\tState variables written after the call(s):\n\t- _stakeInfo.userStakedTokensCount -= tokensCount (src/Staking.sol#120)\n\tElementStake.stakeInfo (src/Staking.sol#48) can be used in cross function reentrancies:\n\t- ElementStake.calculateReward(address,uint24) (src/Staking.sol#139-160)\n\t- ElementStake.claimReward(address,uint24) (src/Staking.sol#129-136)\n\t- ElementStake.stakeInfo (src/Staking.sol#48)\n\t- _stakingPool.stakedElementsCount -= tokensCount (src/Staking.sol#121)\n\tElementStake.stakingPool (src/Staking.sol#49) can be used in cross function reentrancies:\n\t- ElementStake.claimReward(address,uint24) (src/Staking.sol#129-136)\n\t- ElementStake.setStakeMap(uint24[2][]) (src/Staking.sol#188-198)\n\t- ElementStake.stakingPool (src/Staking.sol#49)\n",
+            "markdown": "Reentrancy in [ElementStake.unstake(uint24,uint256[])](src/Staking.sol#L98-L127):\n\tExternal calls:\n\t- [_rewardCount = claimReward(msg.sender,_elementId)](src/Staking.sol#L117)\n\t\t- [rewardToken.mintBaseElements(staker,rewardCount,rewardElement)](src/Staking.sol#L134)\n\tState variables written after the call(s):\n\t- [_stakeInfo.userStakedTokensCount -= tokensCount](src/Staking.sol#L120)\n\t[ElementStake.stakeInfo](src/Staking.sol#L48) can be used in cross function reentrancies:\n\t- [ElementStake.calculateReward(address,uint24)](src/Staking.sol#L139-L160)\n\t- [ElementStake.claimReward(address,uint24)](src/Staking.sol#L129-L136)\n\t- [ElementStake.stakeInfo](src/Staking.sol#L48)\n\t- [_stakingPool.stakedElementsCount -= tokensCount](src/Staking.sol#L121)\n\t[ElementStake.stakingPool](src/Staking.sol#L49) can be used in cross function reentrancies:\n\t- [ElementStake.claimReward(address,uint24)](src/Staking.sol#L129-L136)\n\t- [ElementStake.setStakeMap(uint24[2][])](src/Staking.sol#L188-L198)\n\t- [ElementStake.stakingPool](src/Staking.sol#L49)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 98,
+                  "endLine": 127
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "7f551664cb5388c8569a582554d419e56aa24024bb92b9e2d041e3fedfef8da8"
+          }
+        },
+        {
+          "ruleId": "1-1-uninitialized-local",
+          "message": {
+            "text": "Merging.mergeVolatiles(uint256[],uint256[]).count (src/Merging.sol#126) is a local variable never initialized\n",
+            "markdown": "[Merging.mergeVolatiles(uint256[],uint256[]).count](src/Merging.sol#L126) is a local variable never initialized\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 126,
+                  "endLine": 126
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "d08775e576cc0c9a8cbd1f0c07dce26b6fa3ffa856a96b5b3455eb504c360838"
+          }
+        },
+        {
+          "ruleId": "1-1-uninitialized-local",
+          "message": {
+            "text": "Merging.merge(uint256[]).count (src/Merging.sol#75) is a local variable never initialized\n",
+            "markdown": "[Merging.merge(uint256[]).count](src/Merging.sol#L75) is a local variable never initialized\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 75,
+                  "endLine": 75
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "fe0320d86bbef360bf2ff0e22b2b0c150bbec26b159bacdcaacd7aceb2ad4da1"
+          }
+        },
+        {
+          "ruleId": "2-1-events-maths",
+          "message": {
+            "text": "ElementStake.updateReward(uint256,uint256,uint256,uint256,uint256) (src/Staking.sol#173-185) should emit an event for: \n\t- periodTime = _periodTime (src/Staking.sol#180) \n\t- maxRewardCount = _maxRewardCount (src/Staking.sol#184) \n",
+            "markdown": "[ElementStake.updateReward(uint256,uint256,uint256,uint256,uint256)](src/Staking.sol#L173-L185) should emit an event for: \n\t- [periodTime = _periodTime](src/Staking.sol#L180) \n\t- [maxRewardCount = _maxRewardCount](src/Staking.sol#L184) \n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 173,
+                  "endLine": 185
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "e4d3d5ebccc2435e836e954e87742ef72e8b83474e69d463447b294d13f5f1ee"
+          }
+        },
+        {
+          "ruleId": "2-1-missing-zero-check",
+          "message": {
+            "text": "ERC721Crystal.setExternalContracts(address,address)._mergeContract (src/ERC721Crystal.sol#112) lacks a zero-check on :\n\t\t- MERGE = _mergeContract (src/ERC721Crystal.sol#116)\n",
+            "markdown": "[ERC721Crystal.setExternalContracts(address,address)._mergeContract](src/ERC721Crystal.sol#L112) lacks a zero-check on :\n\t\t- [MERGE = _mergeContract](src/ERC721Crystal.sol#L116)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC721Crystal.sol"
+                },
+                "region": {
+                  "startLine": 112,
+                  "endLine": 112
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "c8742142db4959ad19291bdc24a25e8125888e33e48d2d9ffe6f818f6e5900f6"
+          }
+        },
+        {
+          "ruleId": "2-1-calls-loop",
+          "message": {
+            "text": "Merging.mergeVolatiles(uint256[],uint256[]) (src/Merging.sol#92-140) has external calls inside a loop: nftToken.mintCrystals(msg.sender,uint24(resultElements[i_scope_1]),1) (src/Merging.sol#129)\n",
+            "markdown": "[Merging.mergeVolatiles(uint256[],uint256[])](src/Merging.sol#L92-L140) has external calls inside a loop: [nftToken.mintCrystals(msg.sender,uint24(resultElements[i_scope_1]),1)](src/Merging.sol#L129)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 92,
+                  "endLine": 140
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "1a22fe9ee612d6e0b676d77484a13430b558afc91ccd156507811e2aa8e6c1cc"
+          }
+        },
+        {
+          "ruleId": "2-1-calls-loop",
+          "message": {
+            "text": "Merging.isMergeAllowed(uint256[]) (src/Merging.sol#172-184) has external calls inside a loop: elementId = nftToken.elementId(tokenIds[i]) (src/Merging.sol#174)\n",
+            "markdown": "[Merging.isMergeAllowed(uint256[])](src/Merging.sol#L172-L184) has external calls inside a loop: [elementId = nftToken.elementId(tokenIds[i])](src/Merging.sol#L174)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 172,
+                  "endLine": 184
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "1afb9605fa36d0bd15571a81e86555d283c32d103eceefe2a53511b4cc88df62"
+          }
+        },
+        {
+          "ruleId": "2-1-calls-loop",
+          "message": {
+            "text": "ElementStake.stakeMult(uint24,uint256[]) (src/Staking.sol#64-95) has external calls inside a loop: nftToken.ownerOf(_cachedTokenId) != msg.sender (src/Staking.sol#74)\n",
+            "markdown": "[ElementStake.stakeMult(uint24,uint256[])](src/Staking.sol#L64-L95) has external calls inside a loop: [nftToken.ownerOf(_cachedTokenId) != msg.sender](src/Staking.sol#L74)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 64,
+                  "endLine": 95
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "2cfadf22e4321b27656705a02fa49e84d7a72dc573f94b0a5c1b6f9f05d938a3"
+          }
+        },
+        {
+          "ruleId": "2-1-calls-loop",
+          "message": {
+            "text": "ERC721Crystal._beforeTokenTransfers(address,address,uint256,uint256) (src/ERC721Crystal.sol#131-133) has external calls inside a loop: STAKE.isCrystalStaked(startTokenId) (src/ERC721Crystal.sol#132)\n",
+            "markdown": "[ERC721Crystal._beforeTokenTransfers(address,address,uint256,uint256)](src/ERC721Crystal.sol#L131-L133) has external calls inside a loop: [STAKE.isCrystalStaked(startTokenId)](src/ERC721Crystal.sol#L132)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC721Crystal.sol"
+                },
+                "region": {
+                  "startLine": 131,
+                  "endLine": 133
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "2f06f2fba0281ed98a8ecb6cacc11371e217ba6a7808393750cca8d7d933183f"
+          }
+        },
+        {
+          "ruleId": "2-1-calls-loop",
+          "message": {
+            "text": "ElementStake.unstake(uint24,uint256[]) (src/Staking.sol#98-127) has external calls inside a loop: nftToken.ownerOf(_cachedTokenId) != msg.sender (src/Staking.sol#106)\n",
+            "markdown": "[ElementStake.unstake(uint24,uint256[])](src/Staking.sol#L98-L127) has external calls inside a loop: [nftToken.ownerOf(_cachedTokenId) != msg.sender](src/Staking.sol#L106)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 98,
+                  "endLine": 127
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "478814a245b3f43801e8f4ae22118162dc86ae2cae835ccb48c9f22c9d942103"
+          }
+        },
+        {
+          "ruleId": "2-1-calls-loop",
+          "message": {
+            "text": "Merging.mergeVolatiles(uint256[],uint256[]) (src/Merging.sol#92-140) has external calls inside a loop: nftToken.ownerOf(crystalIds[i]) != msg.sender (src/Merging.sol#101)\n",
+            "markdown": "[Merging.mergeVolatiles(uint256[],uint256[])](src/Merging.sol#L92-L140) has external calls inside a loop: [nftToken.ownerOf(crystalIds[i]) != msg.sender](src/Merging.sol#L101)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 92,
+                  "endLine": 140
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "56141765c6df95b4d45289008c6c4578dadae47f0c3eb4aa7e426e2f5f4cef18"
+          }
+        },
+        {
+          "ruleId": "2-1-calls-loop",
+          "message": {
+            "text": "ElementStake.unstake(uint24,uint256[]) (src/Staking.sol#98-127) has external calls inside a loop: nftToken.elementId(_cachedTokenId) != _elementId (src/Staking.sol#107)\n",
+            "markdown": "[ElementStake.unstake(uint24,uint256[])](src/Staking.sol#L98-L127) has external calls inside a loop: [nftToken.elementId(_cachedTokenId) != _elementId](src/Staking.sol#L107)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 98,
+                  "endLine": 127
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "8ac39f05fe2df0007c0f346c65111cac250fa137ef720f4995114aaf4d001bb1"
+          }
+        },
+        {
+          "ruleId": "2-1-calls-loop",
+          "message": {
+            "text": "Merging.mergeVolatiles(uint256[],uint256[]) (src/Merging.sol#92-140) has external calls inside a loop: elementId = nftToken.elementId(crystalIds[i]) (src/Merging.sol#103)\n",
+            "markdown": "[Merging.mergeVolatiles(uint256[],uint256[])](src/Merging.sol#L92-L140) has external calls inside a loop: [elementId = nftToken.elementId(crystalIds[i])](src/Merging.sol#L103)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 92,
+                  "endLine": 140
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "aa82fc70c2a167e1731226116ec9d2634e03275fedabe5a1ce14fb6dfb779cbd"
+          }
+        },
+        {
+          "ruleId": "2-1-calls-loop",
+          "message": {
+            "text": "Merging.merge(uint256[]) (src/Merging.sol#66-89) has external calls inside a loop: nftToken.mintCrystals(msg.sender,uint24(resultElements[i]),1) (src/Merging.sol#78)\n",
+            "markdown": "[Merging.merge(uint256[])](src/Merging.sol#L66-L89) has external calls inside a loop: [nftToken.mintCrystals(msg.sender,uint24(resultElements[i]),1)](src/Merging.sol#L78)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 66,
+                  "endLine": 89
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "bcc3ae78825bf39c32dd09c7cbceffae715f7b0093ca9444b0409792d69da3dc"
+          }
+        },
+        {
+          "ruleId": "2-1-calls-loop",
+          "message": {
+            "text": "ElementStake.stakeMult(uint24,uint256[]) (src/Staking.sol#64-95) has external calls inside a loop: nftToken.elementId(_cachedTokenId) != _elementId (src/Staking.sol#75)\n",
+            "markdown": "[ElementStake.stakeMult(uint24,uint256[])](src/Staking.sol#L64-L95) has external calls inside a loop: [nftToken.elementId(_cachedTokenId) != _elementId](src/Staking.sol#L75)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 64,
+                  "endLine": 95
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "ea17e3a5ce4fe7d9d4894eed47c8b60bd5864471523072d4044e549456e953c0"
+          }
+        },
+        {
+          "ruleId": "2-1-reentrancy-events",
+          "message": {
+            "text": "Reentrancy in ElementStake.claimReward(address,uint24) (src/Staking.sol#129-136):\n\tExternal calls:\n\t- rewardToken.mintBaseElements(staker,rewardCount,rewardElement) (src/Staking.sol#134)\n\tEvent emitted after the call(s):\n\t- ClaimReward(staker,rewardCount,rewardElement) (src/Staking.sol#135)\n",
+            "markdown": "Reentrancy in [ElementStake.claimReward(address,uint24)](src/Staking.sol#L129-L136):\n\tExternal calls:\n\t- [rewardToken.mintBaseElements(staker,rewardCount,rewardElement)](src/Staking.sol#L134)\n\tEvent emitted after the call(s):\n\t- [ClaimReward(staker,rewardCount,rewardElement)](src/Staking.sol#L135)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 129,
+                  "endLine": 136
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "c3005bce732dd8d4714039d1e42b6156bf8c64598bcb8322e1f29bc97e903e26"
+          }
+        },
+        {
+          "ruleId": "2-1-timestamp",
+          "message": {
+            "text": "ElementStake.calculateReward(address,uint24) (src/Staking.sol#139-160) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- (block.timestamp - stakeData.lastStakeTime) >= periodTime (src/Staking.sol#145)\n\t- (block.timestamp - stakeData.lastClaimTime) >= periodTime (src/Staking.sol#146)\n\t- totalPeriods >= maxRewardCount (src/Staking.sol#153)\n\t- totalPeriods > userMaxReward (src/Staking.sol#156)\n",
+            "markdown": "[ElementStake.calculateReward(address,uint24)](src/Staking.sol#L139-L160) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- [(block.timestamp - stakeData.lastStakeTime) >= periodTime](src/Staking.sol#L145)\n\t- [(block.timestamp - stakeData.lastClaimTime) >= periodTime](src/Staking.sol#L146)\n\t- [totalPeriods >= maxRewardCount](src/Staking.sol#L153)\n\t- [totalPeriods > userMaxReward](src/Staking.sol#L156)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 139,
+                  "endLine": 160
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "098c72d5102f0d799d72346b708938e13642a947637eae175bd9d49d2b38241b"
+          }
+        },
+        {
+          "ruleId": "2-1-timestamp",
+          "message": {
+            "text": "Merging._selectResultArr(uint256[]) (src/Merging.sol#242-276) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- randomNum < a (src/Merging.sol#259)\n\t- randomNum < (a + b) (src/Merging.sol#261)\n",
+            "markdown": "[Merging._selectResultArr(uint256[])](src/Merging.sol#L242-L276) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- [randomNum < a](src/Merging.sol#L259)\n\t- [randomNum < (a + b)](src/Merging.sol#L261)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 242,
+                  "endLine": 276
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "db49e085575f76b2f608d09abefdd55b45dba7ddaafbd9ebcd0c3f7b130a555b"
+          }
+        },
+        {
+          "ruleId": "2-0-void-cst",
+          "message": {
+            "text": "Void constructor called in ERC1155Volatile.constructor(address,address) (src/ERC1155Volatile.sol#26-30):\n\t- ERC1155() (src/ERC1155Volatile.sol#26)\n",
+            "markdown": "Void constructor called in [ERC1155Volatile.constructor(address,address)](src/ERC1155Volatile.sol#L26-L30):\n\t- [ERC1155()](src/ERC1155Volatile.sol#L26)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC1155Volatile.sol"
+                },
+                "region": {
+                  "startLine": 26,
+                  "endLine": 30
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "5bf17bb762b6ba9baa98c08a418e22869343a222448a200b58fda7fa79f9c4eb"
+          }
+        },
+        {
+          "ruleId": "3-0-solc-version",
+          "message": {
+            "text": "Pragma version0.8.19 (src/Merging.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.\n",
+            "markdown": "Pragma version[0.8.19](src/Merging.sol#L2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 2,
+                  "endLine": 2
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "619c6acab961848151382ad0f137c80f4a8b6e1dede939b9e24a53eee75e9b3c"
+          }
+        },
+        {
+          "ruleId": "3-0-solc-version",
+          "message": {
+            "text": "Pragma version0.8.19 (src/ERC1155Volatile.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.\n",
+            "markdown": "Pragma version[0.8.19](src/ERC1155Volatile.sol#L2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC1155Volatile.sol"
+                },
+                "region": {
+                  "startLine": 2,
+                  "endLine": 2
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "ac848e35d4d4febdd867ed965c5eef8a297b23254530aee26c4f3346944d01ae"
+          }
+        },
+        {
+          "ruleId": "3-0-solc-version",
+          "message": {
+            "text": "Pragma version0.8.19 (src/ERC721Crystal.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.\n",
+            "markdown": "Pragma version[0.8.19](src/ERC721Crystal.sol#L2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC721Crystal.sol"
+                },
+                "region": {
+                  "startLine": 2,
+                  "endLine": 2
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "de9f1c7e690bfa3183820ba0fa7437e2270a819d1df51fc4771e96638bac5849"
+          }
+        },
+        {
+          "ruleId": "3-0-solc-version",
+          "message": {
+            "text": "Pragma version0.8.19 (src/Staking.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.\n",
+            "markdown": "Pragma version[0.8.19](src/Staking.sol#L2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 2,
+                  "endLine": 2
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "ec78247fd50a992a2aaeabe5ef484bdceb223de4f27e4c58578ac66f84040c4c"
+          }
+        },
+        {
+          "ruleId": "3-0-missing-inheritance",
+          "message": {
+            "text": "ERC1155Volatile (src/ERC1155Volatile.sol#8-63) should inherit from IERC1155Volatiles (src/Merging.sol#20-22)\n",
+            "markdown": "[ERC1155Volatile](src/ERC1155Volatile.sol#L8-L63) should inherit from [IERC1155Volatiles](src/Merging.sol#L20-L22)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC1155Volatile.sol"
+                },
+                "region": {
+                  "startLine": 8,
+                  "endLine": 63
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "7c5d573558f5cac6cec74feae896d1daf2e55bede0a233282b438775b7d99201"
+          }
+        },
+        {
+          "ruleId": "3-0-missing-inheritance",
+          "message": {
+            "text": "ElementStake (src/Staking.sol#29-204) should inherit from IStaking (src/ERC721Crystal.sol#9-11)\n",
+            "markdown": "[ElementStake](src/Staking.sol#L29-L204) should inherit from [IStaking](src/ERC721Crystal.sol#L9-L11)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 29,
+                  "endLine": 204
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "86d361f3014733d3ff0ea700a52425a63646e69f6f20ea7b2c0dfe58d58c9519"
+          }
+        },
+        {
+          "ruleId": "3-0-missing-inheritance",
+          "message": {
+            "text": "ERC721Crystal (src/ERC721Crystal.sol#17-143) should inherit from IERC721Crystal (src/Merging.sol#8-18)\n",
+            "markdown": "[ERC721Crystal](src/ERC721Crystal.sol#L17-L143) should inherit from [IERC721Crystal](src/Merging.sol#L8-L18)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC721Crystal.sol"
+                },
+                "region": {
+                  "startLine": 17,
+                  "endLine": 143
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "a9ec2f4d18e332b9a24066e43c7795c5a79e06f688890fddc15dcf76c6734f7c"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter ElementStake.stakeMult(uint24,uint256[])._elementId (src/Staking.sol#64) is not in mixedCase\n",
+            "markdown": "Parameter [ElementStake.stakeMult(uint24,uint256[])._elementId](src/Staking.sol#L64) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 64,
+                  "endLine": 64
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "0fa6c66dd5e12cad0a85010c0655328f72db9f1b8951a97c9b8947584127bf7d"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Variable Merging.MergeMap (src/Merging.sol#50) is not in mixedCase\n",
+            "markdown": "Variable [Merging.MergeMap](src/Merging.sol#L50) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 50,
+                  "endLine": 50
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "1c015b4b102f956440ba33e522b34f431062d19fe9b0e4e8859991da11f8b299"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter ElementStake.updateReward(uint256,uint256,uint256,uint256,uint256)._baseRate (src/Staking.sol#174) is not in mixedCase\n",
+            "markdown": "Parameter [ElementStake.updateReward(uint256,uint256,uint256,uint256,uint256)._baseRate](src/Staking.sol#L174) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 174,
+                  "endLine": 174
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "1cf9260b663548e3032a172e8d4bf5d7c5b02f740fae42cb5283ed7c3c1ad382"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter ElementStake.updateReward(uint256,uint256,uint256,uint256,uint256)._periodTime (src/Staking.sol#177) is not in mixedCase\n",
+            "markdown": "Parameter [ElementStake.updateReward(uint256,uint256,uint256,uint256,uint256)._periodTime](src/Staking.sol#L177) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 177,
+                  "endLine": 177
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "24039a8eb44295c0736dd5c85d5d7181162076d6aaa3ca3dacc83e467b50ac65"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Variable ERC721Crystal.MERGE (src/ERC721Crystal.sol#21) is not in mixedCase\n",
+            "markdown": "Variable [ERC721Crystal.MERGE](src/ERC721Crystal.sol#L21) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC721Crystal.sol"
+                },
+                "region": {
+                  "startLine": 21,
+                  "endLine": 21
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "3ff224448c44ae28aa1113310f87bd9b05a25de8ca5f6c196715e86bd2102858"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter ERC721Crystal.setExternalContracts(address,address)._stakeContract (src/ERC721Crystal.sol#112) is not in mixedCase\n",
+            "markdown": "Parameter [ERC721Crystal.setExternalContracts(address,address)._stakeContract](src/ERC721Crystal.sol#L112) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC721Crystal.sol"
+                },
+                "region": {
+                  "startLine": 112,
+                  "endLine": 112
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "41e01b32a29dcf5821355b551b0d2ce6f1a02528945e40c5e5709df2d159e6ed"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter ERC721Crystal.mintCrystals(address,uint24,uint256)._elementId (src/ERC721Crystal.sol#65) is not in mixedCase\n",
+            "markdown": "Parameter [ERC721Crystal.mintCrystals(address,uint24,uint256)._elementId](src/ERC721Crystal.sol#L65) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC721Crystal.sol"
+                },
+                "region": {
+                  "startLine": 65,
+                  "endLine": 65
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "4d34f9ea45cb028ef09904ec6d7824f627aa749f6ad9df8bc7e47ad415f1d4ae"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter ElementStake.unstake(uint24,uint256[])._elementId (src/Staking.sol#98) is not in mixedCase\n",
+            "markdown": "Parameter [ElementStake.unstake(uint24,uint256[])._elementId](src/Staking.sol#L98) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 98,
+                  "endLine": 98
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "8f2f23986b62e25d28b680d5c128f1be619cdb55435a6f55699cbb3436c6b2f3"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter ElementStake.setExternalContracts(address,address)._rewardToken (src/Staking.sol#168) is not in mixedCase\n",
+            "markdown": "Parameter [ElementStake.setExternalContracts(address,address)._rewardToken](src/Staking.sol#L168) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 168,
+                  "endLine": 168
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "8f98c3c489cda52a902b0f656d0c6802fbb79cdd6c387703c86b38fc06bee9ff"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Variable ERC721Crystal.STAKE (src/ERC721Crystal.sol#20) is not in mixedCase\n",
+            "markdown": "Variable [ERC721Crystal.STAKE](src/ERC721Crystal.sol#L20) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC721Crystal.sol"
+                },
+                "region": {
+                  "startLine": 20,
+                  "endLine": 20
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "92c0a608fc1a6d86c53b7680f4eb99094bb01bdc11e932819993df33f22dee13"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter ERC721Crystal.setExternalContracts(address,address)._mergeContract (src/ERC721Crystal.sol#112) is not in mixedCase\n",
+            "markdown": "Parameter [ERC721Crystal.setExternalContracts(address,address)._mergeContract](src/ERC721Crystal.sol#L112) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC721Crystal.sol"
+                },
+                "region": {
+                  "startLine": 112,
+                  "endLine": 112
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "af55e1a3f558b3d7281bac7a986ee385f0af05b4164ca18328629330544da493"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter ElementStake.setExternalContracts(address,address)._nftToken (src/Staking.sol#168) is not in mixedCase\n",
+            "markdown": "Parameter [ElementStake.setExternalContracts(address,address)._nftToken](src/Staking.sol#L168) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 168,
+                  "endLine": 168
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "d01dffb14176d93aff8619a4d6c6822b7ef8d43cfa7fd89f5d9f89e5aa98555d"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter ElementStake.updateReward(uint256,uint256,uint256,uint256,uint256)._km (src/Staking.sol#176) is not in mixedCase\n",
+            "markdown": "Parameter [ElementStake.updateReward(uint256,uint256,uint256,uint256,uint256)._km](src/Staking.sol#L176) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 176,
+                  "endLine": 176
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "d679612608516633c7e6a2dffcc01f6e6c74779973f14a8f519c9c0e91b90627"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Variable ERC1155Volatile.ElementLife (src/ERC1155Volatile.sol#12) is not in mixedCase\n",
+            "markdown": "Variable [ERC1155Volatile.ElementLife](src/ERC1155Volatile.sol#L12) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC1155Volatile.sol"
+                },
+                "region": {
+                  "startLine": 12,
+                  "endLine": 12
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "d7a2bab2e3cba7f51a68a82e96604c5b891eb5560f9520787ecd160518c74169"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter Merging.setTokensContract(address,address)._volatileToken (src/Merging.sol#218) is not in mixedCase\n",
+            "markdown": "Parameter [Merging.setTokensContract(address,address)._volatileToken](src/Merging.sol#L218) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 218,
+                  "endLine": 218
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "d87395b833fae053c980bfbb9f7fde36be751254ef2f297e2b7b1df1ad79e8ee"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter ElementStake.updateReward(uint256,uint256,uint256,uint256,uint256)._baseRateMax (src/Staking.sol#175) is not in mixedCase\n",
+            "markdown": "Parameter [ElementStake.updateReward(uint256,uint256,uint256,uint256,uint256)._baseRateMax](src/Staking.sol#L175) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 175,
+                  "endLine": 175
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "dd6edc9e70ec52b216b0ba753fa5fbc6f247861a8f15970496bc9c9eafa25409"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter ERC721Crystal.batchMintCrystals(uint24[],uint256[])._elementIds (src/ERC721Crystal.sol#44) is not in mixedCase\n",
+            "markdown": "Parameter [ERC721Crystal.batchMintCrystals(uint24[],uint256[])._elementIds](src/ERC721Crystal.sol#L44) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC721Crystal.sol"
+                },
+                "region": {
+                  "startLine": 44,
+                  "endLine": 44
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "e46add26b945d0c86ce2e568171f1e8a80064179da4c8c74aa37b06da607fcef"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter Merging.setTokensContract(address,address)._nftToken (src/Merging.sol#218) is not in mixedCase\n",
+            "markdown": "Parameter [Merging.setTokensContract(address,address)._nftToken](src/Merging.sol#L218) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 218,
+                  "endLine": 218
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "e4cb8b50f3b042100fe2b5df624986ce0440b715c2f3af06bb261351543d1867"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter Merging.setMergeMap(uint256[][5][]).Elements (src/Merging.sol#192) is not in mixedCase\n",
+            "markdown": "Parameter [Merging.setMergeMap(uint256[][5][]).Elements](src/Merging.sol#L192) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Merging.sol"
+                },
+                "region": {
+                  "startLine": 192,
+                  "endLine": 192
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "ef43d663767883f45a3cf0425d4301b2095928f76f9582338bbc9c7190126183"
+          }
+        },
+        {
+          "ruleId": "3-0-naming-convention",
+          "message": {
+            "text": "Parameter ElementStake.updateReward(uint256,uint256,uint256,uint256,uint256)._maxRewardCount (src/Staking.sol#178) is not in mixedCase\n",
+            "markdown": "Parameter [ElementStake.updateReward(uint256,uint256,uint256,uint256,uint256)._maxRewardCount](src/Staking.sol#L178) is not in mixedCase\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/Staking.sol"
+                },
+                "region": {
+                  "startLine": 178,
+                  "endLine": 178
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "fa0c9fac8733a75ac75a2305c4b1fc664b93f827851602fc87feae7e9829b6e9"
+          }
+        },
+        {
+          "ruleId": "3-0-unused-state",
+          "message": {
+            "text": "ERC1155Volatile.ElementLife (src/ERC1155Volatile.sol#12) is never used in ERC1155Volatile (src/ERC1155Volatile.sol#8-63)\n",
+            "markdown": "[ERC1155Volatile.ElementLife](src/ERC1155Volatile.sol#L12) is never used in [ERC1155Volatile](src/ERC1155Volatile.sol#L8-L63)\n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC1155Volatile.sol"
+                },
+                "region": {
+                  "startLine": 12,
+                  "endLine": 12
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "d19d6fba5afe11a141d3920a9f5e683130690ce9b0a43d3523630ef128bb76b6"
+          }
+        },
+        {
+          "ruleId": "4-0-constable-states",
+          "message": {
+            "text": "ERC1155Volatile.name (src/ERC1155Volatile.sol#9) should be constant \n",
+            "markdown": "[ERC1155Volatile.name](src/ERC1155Volatile.sol#L9) should be constant \n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC1155Volatile.sol"
+                },
+                "region": {
+                  "startLine": 9,
+                  "endLine": 9
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "791287e7db4ff64dc7ceff2adaa2ef7174023ce5bd5d383161f92e45775ec8b1"
+          }
+        },
+        {
+          "ruleId": "4-0-constable-states",
+          "message": {
+            "text": "ERC1155Volatile.symbol (src/ERC1155Volatile.sol#10) should be constant \n",
+            "markdown": "[ERC1155Volatile.symbol](src/ERC1155Volatile.sol#L10) should be constant \n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC1155Volatile.sol"
+                },
+                "region": {
+                  "startLine": 10,
+                  "endLine": 10
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "ce2189408c50a8897de0625a1d5230ab4d29836e0e9706120dd1744e4a03fbf4"
+          }
+        },
+        {
+          "ruleId": "4-0-constable-states",
+          "message": {
+            "text": "ERC1155Volatile.ElementLife (src/ERC1155Volatile.sol#12) should be constant \n",
+            "markdown": "[ERC1155Volatile.ElementLife](src/ERC1155Volatile.sol#L12) should be constant \n"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ERC1155Volatile.sol"
+                },
+                "region": {
+                  "startLine": 12,
+                  "endLine": 12
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "id": "ebf566fe9212979b794bb50f66df1cbb0968e15ad4008730bb50e62ece07501a"
+          }
+        }
+      ]
+    }
+  ]
+}
